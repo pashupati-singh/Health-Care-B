@@ -6,7 +6,7 @@ const TestimonialRoutes = express.Router();
 TestimonialRoutes.get('/', async(req,res)=>{
   try {
     const testimonial = await TestModel.find();
-    res.json(testimonial);
+   return res.status(201).json(testimonial);
   } catch (error) {
     res.json(error)
   }

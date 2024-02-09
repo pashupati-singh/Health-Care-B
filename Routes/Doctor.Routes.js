@@ -7,10 +7,10 @@ DoctorRoutes.get('/', async (req, res) => {
   try {
     const { city } = req.query;
     const doctors = await DocModel.find({ location: city });
-    res.json(doctors);
+   return res.send(doctors);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+   return res.status(500).json({ error: 'Internal server error' });
   }
 });
 
